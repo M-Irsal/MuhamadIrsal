@@ -505,3 +505,52 @@
         const navbar = document.querySelector('.navbar');
         navbar.style.backdropFilter = 'blur(10px)';
         navbar.style.background = 'var(--glass-bg)';
+
+        // Slider Project
+        const slider = document.getElementById('projectsSlider');
+const cards = document.querySelectorAll('.project-card');
+
+let currentIndex = 0;
+let cardsPerView = 3;
+
+function updateCardsPerView() {
+    if (window.innerWidth <= 576) {
+        cardsPerView = 1;
+    } else if (window.innerWidth <= 992) {
+        cardsPerView = 2;
+    } else {
+        cardsPerView = 3;
+    }
+}
+
+function slideProjects(direction = 1) {
+    updateCardsPerView();
+
+    const maxIndex = Math.ceil(cards.length / cardsPerView) - 1;
+    currentIndex += direction;
+
+    if (currentIndex > maxIndex) currentIndex = 0;
+    if (currentIndex < 0) currentIndex = maxIndex;
+
+    // Fade out
+    slider.classList.add('fade-out');
+
+    setTimeout(() => {
+        const cardWidth = cards[0].offsetWidth + 32; // gap
+        slider.style.transform = `translateX(-${currentIndex * cardWidth * cardsPerView}px)`;
+
+        // Fade in
+        slider.classList.remove('fade-out');
+        slider.classList.add('fade-in');
+    }, 300);
+}
+
+// Auto activate only if project > 6
+if (cards.length > 6) {
+    setInterval(() => {
+        slideProjects(1);
+    }, 5000); // slide tiap 5 detik
+}
+
+window.addEventListener('resize', updateCardsPerView);
+updateCardsPerView();
