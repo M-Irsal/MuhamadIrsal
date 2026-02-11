@@ -387,6 +387,7 @@
                 'contact.form.Subject': '件名',
                 'contact.form.message': 'メッセージ',
                 'contact.form.btn': '<i class="fas fa-paper-plane"></i> メッセージを送信',
+                'Connect.me': '私とつながろう',
 
                 // Footer
                 'footer.desc': '革新的なウェブ開発と創造的なデザインソリューションを通じて卓越したデジタル体験を創出します。',
