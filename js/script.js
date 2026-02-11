@@ -197,6 +197,7 @@
                 'contact.form.Subject': 'Subjek',
                 'contact.form.message': 'Pesan Anda',
                 'contact.form.btn': '<i class="fas fa-paper-plane"></i> Kirim Pesan',
+                'contact.connect': 'Hubungi Saya',
 
                 // Footer
                 'footer.desc': 'Menciptakan pengalaman digital yang luar biasa melalui pengembangan web inovatif dan solusi desain kreatif.',
@@ -374,6 +375,7 @@
                 'experience.e3.company': '大学卒業生',
                 'experience.e3.date': '2021年 - 2025年',
                 'experience.e3.desc': 'ウェブ技術とソフトウェア開発を専門。',
+                'contact.connect': '私とつながる',
 
                 // Contact
                 'contact.title': 'お問い合わせ',
