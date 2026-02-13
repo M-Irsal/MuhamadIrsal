@@ -514,3 +514,96 @@
         const navbar = document.querySelector('.navbar');
         navbar.style.backdropFilter = 'blur(10px)';
         navbar.style.background = 'var(--glass-bg)';
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+    const grid = document.querySelector('.projects-grid');
+    if (!grid) return;
+
+    const cards = Array.from(grid.querySelectorAll('.project-card'));
+    if (cards.length <= 3) return;
+
+    function isDesktop() {
+        return window.innerWidth > 768;
+    }
+
+    let currentSlide = 0;
+    let wrapper, track, prevBtn, nextBtn;
+
+    function initSlider() {
+
+        if (!isDesktop()) return;
+
+        grid.classList.add('slider-active');
+        grid.style.display = "block";
+
+        wrapper = document.createElement('div');
+        wrapper.className = 'projects-slider-wrapper';
+
+        track = document.createElement('div');
+        track.className = 'projects-slider-track';
+
+        cards.forEach(card => track.appendChild(card));
+
+        wrapper.appendChild(track);
+        grid.appendChild(wrapper);
+
+        createNavigation();
+    }
+
+    function createNavigation() {
+
+        prevBtn = document.createElement('button');
+        nextBtn = document.createElement('button');
+
+        prevBtn.innerHTML = '‹';
+        nextBtn.innerHTML = '›';
+
+        prevBtn.className = 'project-nav prev';
+        nextBtn.className = 'project-nav next';
+
+        const section = document.querySelector('#projects');
+        section.appendChild(prevBtn);
+        section.appendChild(nextBtn);
+
+        prevBtn.addEventListener('click', () => slide(-1));
+        nextBtn.addEventListener('click', () => slide(1));
+    }
+
+    function slide(direction) {
+
+        const itemsPerSlide = 3;
+        const totalSlides = Math.ceil(cards.length / itemsPerSlide);
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) currentSlide = 0;
+        if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+
+        const card = cards[0];
+
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.gap || 0);
+
+        const cardWidth = card.offsetWidth;
+
+        const slideDistance =
+            (cardWidth + gap) * itemsPerSlide;
+
+        const maxTranslate =
+            track.scrollWidth - wrapper.clientWidth;
+
+        let translateValue =
+            currentSlide * slideDistance;
+
+        if (translateValue > maxTranslate) {
+            translateValue = maxTranslate;
+        }
+
+        track.style.transform =
+            `translateX(-${translateValue}px)`;
+    }
+
+    initSlider();
+
+});

@@ -641,6 +641,118 @@ a {
     color: white;
 }
 
+/* =========================================
+   PROJECT SLIDER DESKTOP (3 PER SLIDE)
+========================================= */
+
+/* Anchor untuk tombol absolute */
+#projects {
+    position: relative;
+}
+
+/* Matikan grid saat slider aktif */
+.projects-grid.slider-active {
+    display: block !important;
+}
+
+/* Wrapper */
+.projects-slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Track */
+.projects-slider-track {
+    display: flex;
+    gap: 2rem; /* sama seperti grid asli */
+    transition: transform 0.5s ease;
+}
+
+/* Card width: 3 per slide */
+.projects-slider-track .project-card {
+    flex: 0 0 calc((100% - 4rem) / 3);
+    /* 3 card → 2 gap x 2rem = 4rem */
+}
+
+/* ===============================
+   NAVIGATION BUTTON STYLE
+================================ */
+
+.project-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.8rem;
+    color: white;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    cursor: pointer;
+    z-index: 30;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.project-nav:hover {
+    background: var(--gradient-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Position with spacing from cards */
+.project-nav.prev {
+    left: -80px;  /* jarak dari kiri project */
+}
+
+.project-nav.next {
+    right: -80px; /* jarak dari kanan project */
+}
+
+/* Optional: hanya muncul saat hover */
+.project-nav {
+    opacity: 0;
+}
+
+#projects:hover .project-nav {
+    opacity: 1;
+}
+
+/* ===============================
+   MOBILE → kembali ke grid normal
+================================ */
+
+@media (max-width: 768px) {
+
+    .projects-grid.slider-active {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .projects-slider-wrapper {
+        overflow: visible;
+    }
+
+    .projects-slider-track {
+        display: contents;
+    }
+
+    .project-nav {
+        display: none;
+    }
+}
+
+
 /* Experience Section */
 .timeline {
     position: relative;
