@@ -719,14 +719,7 @@ a {
     right: -80px; /* jarak dari kanan project */
 }
 
-/* Optional: hanya muncul saat hover */
-.project-nav {
-    opacity: 0;
-}
 
-#projects:hover .project-nav {
-    opacity: 1;
-}
 
 /* ===============================
    MOBILE → kembali ke grid normal
