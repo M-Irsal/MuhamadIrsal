@@ -169,7 +169,7 @@
                 'projects.p6.desc': ' Situs web katalog furnitur dengan fitur manajemen produk dan antarmuka profesional untuk mendukung promosi bisnis online.',
                 'All.filter.subtitle': 'Semua proyek',
                 'Website.filter.subtitle': 'Situs web',
-                'Aplication.filter.subtitle': 'Aplikasi',
+                'Application.filter.subtitle': 'Aplikasi',
                 'Sertification.filter.subtitle': 'Sertifikasi',
 
                 // Experience
@@ -269,7 +269,7 @@
                 'projects.p6.desc': 'A furniture catalog website with product management features and a professional interface to support online business promotion.',
                 'All.filter.subtitle': 'All Projects',
                 'Website.filter.subtitle': 'Website',
-                'Aplication.filter.subtitle': 'Application',
+                'Application.filter.subtitle': 'Application',
                 'Sertification.filter.subtitle': 'Sertification',
 
                 // Experience
