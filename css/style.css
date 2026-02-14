@@ -624,14 +624,14 @@ a {
 }
 
 .project-content {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 10%;
 }
 
 .project-tag {
@@ -802,6 +802,30 @@ a {
     .project-nav {
         display: none;
     }
+}
+
+/* ===============================
+   View Details Button 
+================================ */
+.view-details-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    box-shadow: 1px 4px 12px rgba(0,0,0,0.15);
+}
+
+.view-details-btn:hover {
+    transform: translateY(-2px);
+    background: var(--gradient-primary);
 }
 
 
@@ -1148,6 +1172,19 @@ a {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    .project-card {
+        position: relative; /* tetap relative */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* default konten ke kiri */
+    }
+
+     .view-details-btn {
+        position: static; /* ikut alur dokumen */
+        margin-top: 20px;
+        align-self: flex-end; /* tetap di kanan */
     }
 }
 
