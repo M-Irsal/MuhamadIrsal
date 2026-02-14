@@ -125,9 +125,9 @@
                 'nav.contact': 'Kontak',
 
                 // Hero
-                'hero.title': 'Membangun Pengalaman Digital yang Menginspirasi & Bertransformasi',
-                'hero.desc': 'Saya <span style="color: var(--primary-cyan); font-weight: 600;">Muhamad Irsal</span>, seorang Developer yang bersemangat, Spesialis dalam teknologi web modern, grafis 3D, dan pengalaman interaktif yang mendobrak batas.',
-                'hero.badge.web': 'Web Developer',
+                'hero.title': 'Desain dan Pengembangan Aplikasi Web yang Skalabel',
+                'hero.desc': 'Saya <span style="color: var(--primary-cyan); font-weight: 600;">Muhamad Irsal</span>, Pengembang Fullstack yang membangun sistem web yang skalabel dengan antarmuka pengguna modern dan arsitektur backend yang kokoh.',
+                'hero.badge.web': 'Fullstack Developer',
                 'hero.badge.uiux': 'UI/UX Designer',
                 'hero.badge.video': 'Video Editor',
                 'hero.badge.creative': 'Creative Technologist',
@@ -222,9 +222,9 @@
                 'nav.contact': 'Contact',
 
                 // Hero
-                'hero.title': 'Building Digital Experiences That Inspire & Transform',
-                'hero.desc': 'I\'m <span style="color: var(--primary-cyan); font-weight: 600;">Muhamad Irsal</span>, a passionate Developer specializing in modern web technologies, 3D graphics, and interactive experiences that push boundaries.',
-                'hero.badge.web': 'Web Developer',
+                'hero.title': 'Designing and Developing Scalable Web Applications',
+                'hero.desc': 'I\'m <span style="color: var(--primary-cyan); font-weight: 600;">Muhamad Irsal</span>, Fullstack Developer building scalable web systems with modern UI and solid backend architecture.',
+                'hero.badge.web': 'Fullstack Developer',
                 'hero.badge.uiux': 'UI/UX Designer',
                 'hero.badge.video': 'Video Editor',
                 'hero.badge.creative': 'Creative Technologist',
@@ -317,8 +317,8 @@
                 'nav.contact': '連絡先',
 
                 // Hero
-                'hero.title': 'インスピレーションを与え変革するデジタル体験の構築',
-                'hero.desc': '私は<span style="color: var(--primary-cyan); font-weight: 600;">Muhamad Irsal</span>です。現代のウェブ技術、3Dグラフィックス、境界を押し広げるインタラクティブな体験を専門とする情熱的な開発者です。',
+                'hero.title': 'スケーラブルなWebアプリケーションの設計と開発',
+                'hero.desc': '私は<span style="color: var(--primary-cyan); font-weight: 600;">Muhamad Irsal</span>モダンなUIと堅牢なバックエンドアーキテクチャを備えたスケーラブルなウェブシステムを構築するフルスタック開発者。',
                 'hero.badge.web': 'ウェブ開発者',
                 'hero.badge.uiux': 'UI/UXデザイナー',
                 'hero.badge.video': 'ビデオエディター',
