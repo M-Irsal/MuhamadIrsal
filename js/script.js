@@ -540,9 +540,9 @@
 
     let currentSlide = 0;
     let wrapper, track, prevBtn, nextBtn;
+    const fadeDuration = 600; // durasi fade in ms
 
     function initSlider() {
-
         if (!isDesktop()) return;
 
         grid.classList.add('slider-active');
@@ -553,6 +553,7 @@
 
         track = document.createElement('div');
         track.className = 'projects-slider-track';
+        track.style.transition = `opacity ${fadeDuration}ms ease-in-out`; // fade track
 
         cards.forEach(card => track.appendChild(card));
 
@@ -560,10 +561,10 @@
         grid.appendChild(wrapper);
 
         createNavigation();
+        showSlide(currentSlide); // tampilkan slide pertama
     }
 
     function createNavigation() {
-
         prevBtn = document.createElement('button');
         nextBtn = document.createElement('button');
 
@@ -582,7 +583,6 @@
     }
 
     function slide(direction) {
-
         const itemsPerSlide = 3;
         const totalSlides = Math.ceil(cards.length / itemsPerSlide);
 
@@ -591,33 +591,32 @@
         if (currentSlide < 0) currentSlide = 0;
         if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
 
-        const card = cards[0];
+        // Fade out track dulu
+        track.style.opacity = 0;
 
-        const style = window.getComputedStyle(track);
-        const gap = parseFloat(style.gap || 0);
+        setTimeout(() => {
+            const card = cards[0];
+            const style = window.getComputedStyle(track);
+            const gap = parseFloat(style.gap || 0);
+            const cardWidth = card.offsetWidth;
 
-        const cardWidth = card.offsetWidth;
+            const slideDistance = (cardWidth + gap) * itemsPerSlide;
+            const maxTranslate = track.scrollWidth - wrapper.clientWidth;
 
-        const slideDistance =
-            (cardWidth + gap) * itemsPerSlide;
+            let translateValue = currentSlide * slideDistance;
+            if (translateValue > maxTranslate) translateValue = maxTranslate;
 
-        const maxTranslate =
-            track.scrollWidth - wrapper.clientWidth;
+            track.style.transform = `translateX(-${translateValue}px)`;
 
-        let translateValue =
-            currentSlide * slideDistance;
-
-        if (translateValue > maxTranslate) {
-            translateValue = maxTranslate;
-        }
-
-        track.style.transform =
-            `translateX(-${translateValue}px)`;
+            // Fade in track
+            track.style.opacity = 1;
+        }, fadeDuration);
     }
 
     initSlider();
 
 });
+
 
 
  /* =========================================
