@@ -1273,3 +1273,26 @@ a {
     background: var(--gradient-primary);
     color: white;
 }
+
+/* Animasi khusus mobile untuk project cards */
+@media (max-width: 768px) {
+    .project-card {
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .project-card.animate-from-left {
+        transform: translateX(-30px);
+    }
+    
+    .project-card.animate-from-right {
+        transform: translateX(30px);
+    }
+    
+    /* Smooth transition saat card muncul */
+    .project-card {
+        transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}

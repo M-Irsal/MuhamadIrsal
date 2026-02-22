@@ -678,3 +678,101 @@ filterButtons.forEach(button => {
         });
     });
 });
+
+/* =========================================
+   PROJECT CARD ANIMATION KHUSUS MOBILE
+   BERGANTIAN KIRI-KANAN SAAT DISCROLL
+========================================= */
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Fungsi untuk mengecek apakah layar mobile (max-width: 768px)
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    // Inisialisasi observer untuk animasi scroll
+    function initMobileProjectAnimations() {
+        if (!isMobile()) return;
+
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        // Hapus AOS attributes jika ada
+        projectCards.forEach(card => {
+            card.removeAttribute('data-aos');
+            card.removeAttribute('data-aos-delay');
+            card.removeAttribute('data-aos-duration');
+            
+            // Set initial state
+            card.style.opacity = '0';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            // Set transform berdasarkan index
+            const index = Array.from(projectCards).indexOf(card);
+            if (index % 2 === 0) {
+                // Genap: dari kiri
+                card.style.transform = 'translateX(-30px)';
+                card.classList.add('animate-from-left');
+            } else {
+                // Ganjil: dari kanan
+                card.style.transform = 'translateX(30px)';
+                card.classList.add('animate-from-right');
+            }
+        });
+
+        // Intersection Observer untuk mendeteksi saat card muncul di viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Card muncul di layar
+                    const card = entry.target;
+                    const index = Array.from(projectCards).indexOf(card);
+                    
+                    // Tambah delay berdasarkan index
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateX(0)';
+                    }, index * 100); // Delay 100ms per index
+                    
+                    // Stop observing setelah animasi dijalankan
+                    observer.unobserve(card);
+                }
+            });
+        }, {
+            threshold: 0.2, // Muncul saat 20% card terlihat
+            rootMargin: '0px 0px -20px 0px'
+        });
+
+        // Observasi semua project cards
+        projectCards.forEach(card => {
+            observer.observe(card);
+        });
+    }
+
+    // Panggil fungsi
+    initMobileProjectAnimations();
+
+    // Refresh saat resize window
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // Reset semua card
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.style.opacity = '';
+                card.style.transform = '';
+                card.style.transition = '';
+            });
+            
+            // Inisialisasi ulang untuk mobile
+            initMobileProjectAnimations();
+        }, 250);
+    });
+
+    // Untuk memicu animasi saat pertama load
+    setTimeout(() => {
+        if (isMobile()) {
+            window.dispatchEvent(new Event('scroll'));
+        }
+    }, 100);
+});
