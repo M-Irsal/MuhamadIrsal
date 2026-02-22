@@ -1180,10 +1180,8 @@ a {
         align-items: flex-start; /* default konten ke kiri */
     }
 
-     .view-details-btn {
-        position: static; /* ikut alur dokumen */
-        margin-top: 20px;
-        align-self: flex-end; /* tetap di kanan */
+    .project-tags {
+        padding-bottom: 50px; /* beri jarak lebih kecil */
     }
 }
 
